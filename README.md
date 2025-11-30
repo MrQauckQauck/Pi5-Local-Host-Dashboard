@@ -1,6 +1,8 @@
-# Local Host Dashboard - Raspberry Pi System Monitor
+# Local Host Dashboard - Raspberry Pi System Monitory 
 
-A professional, web-based dashboard for monitoring Raspberry Pi 5 system metrics in real-time. Perfect for educational demonstrations and system administration.
+web-based dashboard for monitoring Raspberry Pi 5 system metrics in real-time. Perfect for educational demonstrations and system administration.
+
+Over the last few years, I’ve been tinkering with Raspberry Pis and using them for various purposes, and all of them are running headless. This can make it difficult to monitor them, so I decided it would be fun to create a local web page to provide a faster way to check and see what’s going on with my Pis.
 
 <img width="1521" height="1073" alt="Screenshot 2025-11-30 at 17 12 06" src="https://github.com/user-attachments/assets/80fe0655-7aca-47fd-bc37-8c6834f6f64f" />
 
