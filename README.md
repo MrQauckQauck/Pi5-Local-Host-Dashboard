@@ -2,6 +2,10 @@
 
 A professional, web-based dashboard for monitoring Raspberry Pi 5 system metrics in real-time. Perfect for educational demonstrations and system administration.
 
+# Note: 
+
+SMART data is not available for microSD cards because they lack the firmware and controller logic to track and report health metrics like hard drives or SSDs. To monitor SD card health, you need to rely on indirect methods such as checking for read/write errors, monitoring performance, or running file system checks. However, if you are using an SSD, SMART should work — I have been able to test it successfully so far.
+
 ## Features
 
 ### CPU Monitoring
