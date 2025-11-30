@@ -6,7 +6,7 @@ After=network.target
 Type=simple
 User=pi
 WorkingDirectory=/home/pi/Local-Host-Dashboard
-Environment="PATH=/home/pi/Local-Host-Dashboard/venv/bin"
+Environment="PATH=/home/pi/Local-Host-Dashboard/venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 ExecStart=/home/pi/Local-Host-Dashboard/venv/bin/python /home/pi/Local-Host-Dashboard/run.py
 Restart=always
 RestartSec=10

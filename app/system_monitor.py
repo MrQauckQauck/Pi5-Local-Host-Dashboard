@@ -107,13 +107,14 @@ class SystemMonitor:
     def _get_cpu_voltage():
         """Get CPU voltage from Raspberry Pi"""
         try:
-            result = subprocess.run(['vcgencmd', 'measure_volts'], 
+            # Use /usr/bin/vcgencmd with full path to ensure PATH is correct
+            result = subprocess.run(['/usr/bin/vcgencmd', 'measure_volts'], 
                                   capture_output=True, text=True, timeout=2)
             if result.returncode == 0:
                 match = re.search(r'volt=([0-9.]+)V', result.stdout)
                 if match:
                     return float(match.group(1))
-        except Exception:
+        except Exception as e:
             pass
         
         return None
