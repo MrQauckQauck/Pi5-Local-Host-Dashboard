@@ -1,0 +1,17 @@
+[Unit]
+Description=Local Host Dashboard - Raspberry Pi System Monitor
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/Local-Host-Dashboard
+Environment="PATH=/home/pi/Local-Host-Dashboard/venv/bin"
+ExecStart=/home/pi/Local-Host-Dashboard/venv/bin/python /home/pi/Local-Host-Dashboard/run.py
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

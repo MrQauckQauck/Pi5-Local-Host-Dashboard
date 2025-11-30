@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raspberry Pi System Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>System Monitor</h1>
+                <div class="header-info">
+                    <span id="hostname" class="hostname"></span>
+                    <span id="uptime" class="uptime"></span>
+                </div>
+                <div class="network-info">
+                    <span id="ip-address" class="network-item">IP: --</span>
+                    <span id="gateway" class="network-item">GW: --</span>
+                    <span id="dns" class="network-item">DNS: --</span>
+                </div>
+            </div>
+            <div class="header-controls">
+                <button id="reboot-btn" class="control-btn reboot-btn" title="Reboot system">
+                    <span>🔄 Reboot</span>
+                </button>
+                <button id="shutdown-btn" class="control-btn shutdown-btn" title="Shutdown system">
+                    <span>🔴 Shutdown</span>
+                </button>
+            </div>
+            <div class="update-status">
+                <span id="last-update" class="update-time">Initializing...</span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="dashboard">
+            <!-- System Info Section -->
+            <section class="card system-info-card">
+                <h2>System Information</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <label>System:</label>
+                        <span id="info-system"></span>
+                    </div>
+                    <div class="info-item">
+                        <label>Release:</label>
+                        <span id="info-release"></span>
+                    </div>
+                    <div class="info-item">
+                        <label>Machine:</label>
+                        <span id="info-machine"></span>
+                    </div>
+                    <div class="info-item">
+                        <label>Boot Time:</label>
+                        <span id="info-boot-time"></span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CPU Section -->
+            <section class="card cpu-card">
+                <h2>CPU Metrics</h2>
+                
+                <!-- Temperature Gauge -->
+                <div class="metric-group temperature-group">
+                    <div class="metric-label">Temperature</div>
+                    <div class="gauge-container">
+                        <svg class="gauge" viewBox="0 0 200 120">
+                            <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#e0e0e0" stroke-width="10" stroke-linecap="round"/>
+                            <path id="temp-gauge-fill" d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#4CAF50" stroke-width="10" stroke-linecap="round"/>
+                            <text x="100" y="85" text-anchor="middle" class="gauge-text"><tspan id="temp-value">--</tspan>°F</text>
+                        </svg>
+                    </div>
+                    <div class="status-info">
+                        <div id="temp-status" class="status-badge">Normal</div>
+                    </div>
+                </div>
+
+                <!-- Usage Overview -->
+                <div class="metric-group usage-group">
+                    <div class="metric-label">CPU Usage</div>
+                    <div class="progress-bar">
+                        <div id="cpu-usage-fill" class="progress-fill"></div>
+                    </div>
+                    <div class="progress-label">
+                        <span id="cpu-usage-percent">0%</span>
+                        <span id="cpu-cores-info" class="cores-info"></span>
+                    </div>
+                </div>
+
+                <!-- Per-Core Usage -->
+                <div class="metric-group cores-group">
+                    <div class="metric-label">Per-Core Usage</div>
+                    <div id="cores-container" class="cores-container"></div>
+                </div>
+
+                <!-- Frequency and Voltage -->
+                <div class="metric-group freq-voltage-group">
+                    <div class="metric-row">
+                        <div class="metric-item">
+                            <div class="metric-label-small">Current Frequency</div>
+                            <div id="cpu-freq-current" class="metric-value">-- MHz</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label-small">Min/Max</div>
+                            <div id="cpu-freq-range" class="metric-value">-- / -- MHz</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label-small">Voltage</div>
+                            <div id="cpu-voltage" class="metric-value">-- V</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Throttling Status -->
+                <div class="metric-group throttling-group">
+                    <div class="metric-label">Throttling Status</div>
+                    <div id="throttling-status" class="throttling-items"></div>
+                </div>
+            </section>
+
+            <!-- Memory Section -->
+            <section class="card memory-card">
+                <h2>Memory & Swap</h2>
+
+                <!-- RAM Usage -->
+                <div class="metric-group">
+                    <div class="metric-label">RAM Usage</div>
+                    <div class="progress-bar">
+                        <div id="ram-usage-fill" class="progress-fill"></div>
+                    </div>
+                    <div class="progress-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Used:</span>
+                            <span id="ram-used">0 MB</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Total:</span>
+                            <span id="ram-total">0 MB</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Available:</span>
+                            <span id="ram-available">0 MB</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Cached:</span>
+                            <span id="ram-cached">0 MB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Swap Usage -->
+                <div class="metric-group">
+                    <div class="metric-label">Swap Usage</div>
+                    <div class="progress-bar">
+                        <div id="swap-usage-fill" class="progress-fill"></div>
+                    </div>
+                    <div class="progress-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Used:</span>
+                            <span id="swap-used">0 MB</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Total:</span>
+                            <span id="swap-total">0 MB</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Free:</span>
+                            <span id="swap-free">0 MB</span>
+                        </div>
+                    </div>
+                    <div id="excessive-swap-alert" class="alert alert-hidden"></div>
+                </div>
+            </section>
+
+            <!-- Storage Section -->
+            <section class="card storage-card">
+                <h2>Storage</h2>
+
+                <!-- Disk Partitions -->
+                <div class="metric-group">
+                    <div class="metric-label">Disk Partitions</div>
+                    <div id="partitions-container" class="partitions-container"></div>
+                </div>
+
+                <!-- I/O Performance -->
+                <div class="metric-group">
+                    <div class="metric-label">I/O Performance (Total)</div>
+                    <div class="io-stats">
+                        <div class="io-item">
+                            <div class="io-label">Read</div>
+                            <div class="io-value">
+                                <div id="io-read-count" class="io-count">-- ops</div>
+                                <div id="io-read-data" class="io-data">-- MB</div>
+                            </div>
+                        </div>
+                        <div class="io-item">
+                            <div class="io-label">Write</div>
+                            <div class="io-value">
+                                <div id="io-write-count" class="io-count">-- ops</div>
+                                <div id="io-write-data" class="io-data">-- MB</div>
+                            </div>
+                        </div>
+                        <div class="io-item">
+                            <div class="io-label">Read Time</div>
+                            <div class="io-value">
+                                <div id="io-read-time" class="io-time">-- ms</div>
+                            </div>
+                        </div>
+                        <div class="io-item">
+                            <div class="io-label">Write Time</div>
+                            <div class="io-value">
+                                <div id="io-write-time" class="io-time">-- ms</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Shutdown Confirmation Modal -->
+    <div id="shutdown-modal" class="modal modal-hidden">
+        <div class="modal-content">
+            <h2>⚠️ Confirm Shutdown</h2>
+            <p>Are you sure you want to shut down the system?</p>
+            <p>This action cannot be undone. The system will power off completely.</p>
+            <div class="modal-form">
+                <input type="password" id="shutdown-password" class="password-input" placeholder="Enter password to confirm" />
+            </div>
+            <div class="modal-buttons">
+                <button id="shutdown-cancel" class="modal-btn cancel-btn">Cancel</button>
+                <button id="shutdown-confirm" class="modal-btn confirm-btn">Shutdown</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+</body>
+</html>
