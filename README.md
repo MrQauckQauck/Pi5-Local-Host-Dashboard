@@ -175,93 +175,6 @@ The dashboard provides a clean, professional interface organized into sections:
 - Power-on hours and error metrics
 - Bad sector tracking
 
-## API Endpoints
-
-All metrics are available via REST API:
-
-```
-GET /                          Main dashboard interface
-GET /api/metrics/all           All metrics combined
-GET /api/metrics/cpu           CPU metrics only
-GET /api/metrics/memory        Memory metrics only
-GET /api/metrics/storage       Storage metrics only
-GET /api/metrics/smart         S.M.A.R.T data only
-GET /api/metrics/system        System information only
-```
-
-### Example API Response
-
-```json
-{
-  "system_info": {
-    "hostname": "raspberrypi",
-    "system": "Linux",
-    "release": "6.1.0-rpi-v8",
-    "machine": "aarch64",
-    "boot_time": "2024-11-30T10:30:00",
-    "uptime_seconds": 86400
-  },
-  "cpu": {
-    "cores": 4,
-    "logical_cores": 4,
-    "average_usage": 45.2,
-    "per_core_usage": [45.1, 45.3, 45.2, 45.0],
-    "current_freq": 2400.0,
-    "min_freq": 600.0,
-    "max_freq": 2600.0,
-    "temperature": 52.3,
-    "voltage": 0.825,
-    "throttling": {
-      "throttling": false,
-      "under_voltage": false,
-      // ... more throttling info
-    }
-  },
-  "memory": {
-    "ram_total": 8589934592,
-    "ram_used": 2147483648,
-    "ram_available": 6442450944,
-    "ram_percent": 25.0,
-    "swap_total": 2147483648,
-    "swap_used": 0,
-    "swap_percent": 0.0,
-    "excessive_swap": false
-  },
-  "storage": {
-    "partitions": [
-      {
-        "device": "/dev/mmcblk0p2",
-        "mountpoint": "/",
-        "fstype": "ext4",
-        "total": 32212254720,
-        "used": 16106127360,
-        "free": 16106127360,
-        "percent": 50.0
-      }
-    ],
-    "io_counters": {
-      "read_count": 1000000,
-      "write_count": 500000,
-      "read_bytes": 10737418240,
-      "write_bytes": 5368709120
-    }
-  },
-  "smart": {
-    "available": true,
-    "devices": [
-      {
-        "device": "/dev/sda",
-        "health": "PASSED",
-        "temperature": 35,
-        "power_on_hours": 12000,
-        "raw_read_error_rate": 0,
-        "reallocated_sector_count": 0
-      }
-    ]
-  }
-}
-```
-
 ## Auto-Start on Boot (Optional)
 
 ### Using systemd
@@ -331,14 +244,6 @@ sudo journalctl -u dashboard -f
 - Suitable for continuous monitoring
 - Works well on Raspberry Pi 5
 
-## Browser Compatibility
-
-- Chrome/Chromium 90+
-- Firefox 88+
-- Safari 14+
-- Edge 90+
-- Mobile browsers (iOS Safari, Chrome Mobile)
-
 ## Security Considerations
 
 For production/classroom use:
@@ -364,17 +269,6 @@ server {
     }
 }
 ```
-
-## Educational Features
-
-This dashboard is ideal for:
-
-- **Teaching System Administration**: Understanding Linux system metrics
-- **IoT Education**: Monitoring embedded systems in real-time
-- **Data Science**: Collecting performance data for analysis
-- **Classroom Demonstrations**: Visual representation of system load
-- **Troubleshooting Practice**: Identifying performance issues
-
 ## Project Structure
 
 ```
