@@ -6,7 +6,7 @@ Over the last few years, I’ve been tinkering with Raspberry Pis and using them
 
 <img width="1521" height="1073" alt="Screenshot 2025-11-30 at 17 12 06" src="https://github.com/user-attachments/assets/80fe0655-7aca-47fd-bc37-8c6834f6f64f" />
 
-<img width="1552" height="969" alt="Screenshot 2025-11-30 at 17 13 31" src="https://github.com/user-attachments/assets/c83a0e3a-5eb8-43e7-9ac7-6b35d7b105ab" />
+<img width="1541" height="1088" alt="Screenshot 2025-11-30 at 17 47 26" src="https://github.com/user-attachments/assets/531e0056-0508-4ca1-8192-cb9b8cb79518" />
 
 <img width="1424" height="659" alt="Screenshot 2025-11-30 at 17 13 39" src="https://github.com/user-attachments/assets/13d3241b-f5ac-4656-8199-0db7cdc018e4" />
 
