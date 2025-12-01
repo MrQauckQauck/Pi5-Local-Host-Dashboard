@@ -1,4 +1,4 @@
-# Next Psuh :
+# Next Push :
 
 Going to be adding Pi-hole integration.
 
