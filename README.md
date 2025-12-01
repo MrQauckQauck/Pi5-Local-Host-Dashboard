@@ -17,7 +17,7 @@ Over the last few years, I’ve been tinkering with Raspberry Pis and using them
 
 # Note: 
 
-SMART data is not available for microSD cards because they lack the firmware and controller logic to track and report health metrics like hard drives or SSDs. To monitor SD card health, you need to rely on indirect methods such as checking for read/write errors, monitoring performance, or running file system checks. However, if you are using an SSD, SMART should work — I have been able to test it successfully so far.
+SMART data is not available for microSD cards because they lack the firmware and controller logic to track and report health metrics like hard drives or SSDs. To monitor SD card health, you need to rely on indirect methods such as checking for read/write errors, monitoring performance, or running file system checks. However, if you are using an SSD, SMART should work — but not tested
 
 ## Features
 
