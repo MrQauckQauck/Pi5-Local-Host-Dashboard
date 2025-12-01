@@ -63,7 +63,7 @@ SMART data is not available for microSD cards because they lack the firmware and
 
 ## Requirements
 
-- Raspberry Pi 5 (or compatible Linux system)
+- Raspberry Pi 5
 - Python 3.7+
 - Virtual environment (recommended)
 - Network access (optional, for remote access)
