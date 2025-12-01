@@ -118,17 +118,6 @@ Then access it from another computer on the network:
 http://<raspberry-pi-ip>:5002
 ```
 
-## Command-Line Options
-
-```bash
-python run.py --help
-
-Options:
-  --host HOST           Host to bind to (default: 0.0.0.0)
-  --port PORT           Port to bind to (default: 5000)
-  --debug               Run in debug mode
-```
-
 ## Usage Examples
 
 **Local access only:**
