@@ -1,3 +1,7 @@
+# Next Psuh :
+
+Going to be adding Pi-hole integration.
+
 # Local Host Dashboard - Raspberry Pi System Monitory 
 
 web-based dashboard for monitoring Raspberry Pi 5 system metrics in real-time. Perfect for educational demonstrations and system administration.
