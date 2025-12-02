@@ -1,45 +1,18 @@
-/* No Man's Sky / Star Citizen Inspired Sci-Fi Theme */
+/* Global Styles */
 :root {
-    /* Primary Colors - Neon/Sci-Fi palette */
-    --primary-color: #00d4ff;
-    --primary-dark: #0099cc;
-    --primary-light: #00f0ff;
-    
-    /* Secondary Colors */
-    --accent-orange: #ff6b35;
-    --accent-purple: #b24bff;
-    --accent-green: #00ff88;
-    
-    /* Status Colors */
-    --success-color: #00ff88;
-    --warning-color: #ffb900;
-    --error-color: #ff4466;
-    --info-color: #00d4ff;
-    
-    /* Background - Dark space theme */
-    --background: #0a0e27;
-    --background-2: #1a1f3a;
-    --background-3: #242d4d;
-    
-    /* Surface - Darker with subtle glow */
-    --surface: #15192d;
-    --surface-alt: #1d2139;
-    
-    /* Text */
-    --text-primary: #e0e6ff;
-    --text-secondary: #a0acc0;
-    --text-dark: #6b7a99;
-    
-    /* Borders - Neon glow */
-    --border-color: #00d4ff;
-    --border-secondary: #404d7d;
-    
-    /* Shadows - Cyberpunk glow */
-    --glow-primary: 0 0 10px rgba(0, 212, 255, 0.3);
-    --glow-accent: 0 0 15px rgba(255, 107, 53, 0.2);
-    --glow-success: 0 0 12px rgba(0, 255, 136, 0.2);
-    --shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-    --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.7);
+    --primary-color: #2196F3;
+    --primary-dark: #1976D2;
+    --success-color: #4CAF50;
+    --warning-color: #FF9800;
+    --error-color: #F44336;
+    --background: #f5f5f5;
+    --surface: #ffffff;
+    --surface-dark: #f9f9f9;
+    --text-primary: #212121;
+    --text-secondary: #757575;
+    --border-color: #e0e0e0;
+    --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 * {
@@ -53,33 +26,10 @@ html, body {
 }
 
 body {
-    font-family: 'Courier New', 'Courier', monospace;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
     background-color: var(--background);
-    background-image: 
-        radial-gradient(2px 2px at 20px 30px, #fff, transparent),
-        radial-gradient(2px 2px at 60px 70px, #fff, transparent),
-        radial-gradient(1px 1px at 50px 50px, #fff, transparent),
-        radial-gradient(1px 1px at 130px 80px, #fff, transparent),
-        radial-gradient(2px 2px at 90px 10px, #fff, transparent);
-    background-size: 200px 200px;
-    background-attachment: fixed;
     color: var(--text-primary);
     line-height: 1.6;
-    overflow-x: hidden;
-    position: relative;
-}
-
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.5), transparent);
-    pointer-events: none;
-    animation: scanLines 8s linear infinite;
-    z-index: 999;
 }
 
 /* Container */
@@ -89,137 +39,18 @@ body::before {
     padding: 20px;
 }
 
-/* Header - Holographic effect */
+/* Header */
 .header {
-    background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(178, 75, 255, 0.1) 100%);
-    border: 2px solid var(--primary-color);
-    border-radius: 0;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: white;
     padding: 30px 40px;
+    border-radius: 8px;
     margin-bottom: 30px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     gap: 20px;
-    position: relative;
-    overflow: hidden;
-    box-shadow: var(--glow-primary), inset 0 0 20px rgba(0, 212, 255, 0.1);
-    animation: headerPulse 3s ease-in-out infinite, borderGlow 4s ease-in-out infinite;
-}
-
-.header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.2), transparent);
-    animation: scan 4s linear infinite;
-}
-
-@keyframes headerPulse {
-    0%, 100% {
-        box-shadow: var(--glow-primary), inset 0 0 20px rgba(0, 212, 255, 0.1);
-    }
-    50% {
-        box-shadow: var(--glow-primary), inset 0 0 30px rgba(0, 212, 255, 0.2);
-    }
-}
-
-@keyframes scan {
-    0% { left: -100%; }
-    100% { left: 100%; }
-}
-
-/* NEW ANIMATIONS */
-@keyframes scanLines {
-    0% {
-        transform: translateY(-100%);
-        opacity: 0.5;
-    }
-    50% {
-        opacity: 0.3;
-    }
-    100% {
-        transform: translateY(100vh);
-        opacity: 0;
-    }
-}
-
-@keyframes hologramFlicker {
-    0%, 100% {
-        opacity: 1;
-        text-shadow: 0 0 10px var(--primary-color);
-    }
-    5% {
-        opacity: 0.95;
-        text-shadow: 0 0 15px var(--primary-color);
-    }
-    10% {
-        opacity: 1;
-        text-shadow: 0 0 10px var(--primary-color);
-    }
-}
-
-@keyframes energyFlow {
-    0% {
-        background-position: -200% center;
-    }
-    100% {
-        background-position: 200% center;
-    }
-}
-
-@keyframes cardGlitch {
-    0%, 100% {
-        opacity: 1;
-        box-shadow: var(--glow-primary), 0 0 25px rgba(0, 212, 255, 0.2), var(--shadow);
-    }
-    50% {
-        opacity: 0.98;
-        box-shadow: var(--glow-primary), 0 0 35px rgba(0, 212, 255, 0.3), var(--shadow);
-    }
-}
-
-@keyframes colorShift {
-    0% {
-        box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
-    }
-    50% {
-        box-shadow: 0 0 15px rgba(178, 75, 255, 0.3);
-    }
-    100% {
-        box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
-    }
-}
-
-@keyframes borderGlow {
-    0%, 100% {
-        border-color: var(--primary-color);
-    }
-    50% {
-        border-color: var(--primary-light);
-    }
-}
-
-@keyframes pulse {
-    0%, 100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0.7;
-    }
-}
-
-.header-content h1 {
-    font-size: 2.5em;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--primary-light);
-    text-shadow: 0 0 10px var(--primary-color);
-    font-weight: 900;
-    margin-bottom: 10px;
-    animation: hologramFlicker 4s ease-in-out infinite;
+    box-shadow: var(--shadow-lg);
 }
 
 .header-content {
@@ -237,6 +68,7 @@ body::before {
     flex-direction: column;
     gap: 8px;
     font-size: 14px;
+    opacity: 0.95;
 }
 
 .network-info {
@@ -246,27 +78,17 @@ body::before {
     font-size: 12px;
     margin-top: 12px;
     padding-top: 12px;
-    border-top: 1px solid var(--border-secondary);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .network-item {
     display: block;
     font-family: 'Courier New', monospace;
-    color: var(--text-secondary);
-}
-
-.network-item strong {
-    color: var(--primary-light);
 }
 
 .hostname, .uptime {
     display: flex;
     align-items: center;
-    color: var(--text-secondary);
-}
-
-.hostname strong, .uptime strong {
-    color: var(--primary-light);
 }
 
 .header-controls {
@@ -276,37 +98,32 @@ body::before {
 
 .control-btn {
     padding: 10px 16px;
-    border: 2px solid var(--primary-color);
-    background: rgba(0, 212, 255, 0.1);
-    color: var(--primary-light);
+    border: none;
+    border-radius: 6px;
     font-size: 13px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
     white-space: nowrap;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-family: 'Courier New', monospace;
 }
 
 .reboot-btn {
-    border-color: var(--primary-color);
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
 }
 
 .reboot-btn:hover {
-    background: rgba(0, 212, 255, 0.2);
-    box-shadow: var(--glow-primary);
+    background: rgba(255, 255, 255, 0.3);
     transform: translateY(-2px);
 }
 
 .shutdown-btn {
-    border-color: var(--error-color);
-    color: var(--error-color);
+    background: #F44336;
+    color: white;
 }
 
 .shutdown-btn:hover {
-    background: rgba(255, 68, 102, 0.2);
-    box-shadow: 0 0 15px rgba(255, 68, 102, 0.3);
+    background: #E53935;
     transform: translateY(-2px);
 }
 
@@ -333,57 +150,25 @@ body::before {
 
 /* Cards */
 .card {
-    background: linear-gradient(135deg, var(--surface) 0%, var(--surface-alt) 100%);
-    border: 2px solid var(--border-color);
-    border-radius: 0;
+    background: var(--surface);
+    border-radius: 8px;
     padding: 24px;
-    position: relative;
-    overflow: hidden;
-    box-shadow: var(--glow-primary), var(--shadow);
-    transition: all 0.3s ease;
-    animation: cardGlitch 4s ease-in-out infinite;
-}
-
-.card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
-}
-
-.card::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.05), transparent);
-    animation: energyFlow 3s linear infinite;
-    background-size: 200% 100%;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    transition: box-shadow 0.3s ease;
 }
 
 .card:hover {
-    border-color: var(--primary-light);
-    box-shadow: var(--glow-primary), 0 0 25px rgba(0, 212, 255, 0.2), var(--shadow);
-    transform: translateY(-2px);
-    animation: none;
+    box-shadow: var(--shadow-lg);
 }
 
 .card h2 {
     font-size: 18px;
     margin-bottom: 20px;
-    color: var(--primary-light);
+    color: var(--text-primary);
     font-weight: 600;
-    border-bottom: 2px solid var(--border-secondary);
+    border-bottom: 2px solid var(--primary-color);
     padding-bottom: 12px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    animation: hologramFlicker 5s ease-in-out infinite;
 }
 
 .system-info-card {
@@ -391,10 +176,6 @@ body::before {
 }
 
 .cpu-card {
-    grid-column: 1 / -1;
-}
-
-.memory-card {
     grid-column: 1 / -1;
 }
 
@@ -410,12 +191,10 @@ body::before {
 }
 
 .info-item {
-    background: rgba(0, 212, 255, 0.05);
+    background: var(--surface-dark);
     padding: 12px;
-    border-left: 3px solid var(--accent-orange);
-    border-radius: 0;
-    border: 1px solid var(--border-secondary);
-    border-left: 3px solid var(--accent-orange);
+    border-radius: 6px;
+    border-left: 3px solid var(--primary-color);
 }
 
 .info-item label {
@@ -431,14 +210,14 @@ body::before {
     display: block;
     font-size: 14px;
     font-weight: 600;
-    color: var(--primary-light);
+    color: var(--text-primary);
 }
 
 /* Metric Groups */
 .metric-group {
     margin-bottom: 24px;
     padding-bottom: 24px;
-    border-bottom: 1px solid var(--border-secondary);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .metric-group:last-child {
@@ -450,7 +229,7 @@ body::before {
 .metric-label {
     font-size: 14px;
     font-weight: 600;
-    color: var(--primary-light);
+    color: var(--text-secondary);
     text-transform: uppercase;
     letter-spacing: 0.5px;
     margin-bottom: 12px;
@@ -516,39 +295,31 @@ body::before {
 /* Progress Bars */
 .progress-bar {
     width: 100%;
-    height: 8px;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 0;
+    height: 24px;
+    background: var(--surface-dark);
+    border-radius: 12px;
     overflow: hidden;
     margin-bottom: 8px;
-    border: 1px solid var(--border-secondary);
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--border-color);
 }
 
 .progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, var(--primary-color), var(--primary-light), var(--primary-color));
-    background-size: 200% 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
     width: 0%;
     transition: width 0.3s ease;
-    border-radius: 0;
-    box-shadow: 0 0 10px var(--primary-color);
-    animation: energyFlow 2s linear infinite;
-}
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .progress-fill.warning {
-    background: linear-gradient(90deg, var(--warning-color), var(--accent-orange), var(--warning-color));
-    background-size: 200% 100%;
-    animation: energyFlow 2s linear infinite;
-    box-shadow: 0 0 10px var(--warning-color);
+    background: linear-gradient(90deg, var(--warning-color), #FF8C00);
 }
 
 .progress-fill.error {
-    background: linear-gradient(90deg, var(--error-color), #ff88bb, var(--error-color));
-    background-size: 200% 100%;
-    animation: energyFlow 1.5s linear infinite;
-    box-shadow: 0 0 15px var(--error-color);
+    background: linear-gradient(90deg, var(--error-color), #E53935);
 }
 
 .progress-label {
@@ -893,16 +664,9 @@ body::before {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(2px);
+    background-color: rgba(0, 0, 0, 0.5);
     align-items: center;
     justify-content: center;
-    animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
 }
 
 .modal-hidden {
@@ -910,33 +674,18 @@ body::before {
 }
 
 .modal-content {
-    background: linear-gradient(135deg, var(--surface) 0%, var(--surface-alt) 100%);
+    background: var(--surface);
     padding: 30px;
-    border: 2px solid var(--primary-color);
-    border-radius: 0;
-    box-shadow: var(--glow-primary), 0 0 30px rgba(0, 0, 0, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     max-width: 400px;
     width: 90%;
-    animation: slideIn 0.3s ease;
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateY(-50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
 }
 
 .modal-content h2 {
     margin: 0 0 15px 0;
     font-size: 20px;
-    color: var(--error-color);
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    color: #F44336;
 }
 
 .modal-content p {
@@ -952,21 +701,17 @@ body::before {
 .password-input {
     width: 100%;
     padding: 12px;
-    background: rgba(0, 212, 255, 0.05);
-    border: 2px solid var(--border-secondary);
-    border-radius: 0;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
     font-size: 14px;
     font-family: 'Courier New', monospace;
-    color: var(--text-primary);
     box-sizing: border-box;
-    transition: all 0.3s ease;
 }
 
 .password-input:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: inset 0 0 10px rgba(0, 212, 255, 0.1), 0 0 15px rgba(0, 212, 255, 0.2);
-    background: rgba(0, 212, 255, 0.1);
+    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
 }
 
 .modal-buttons {
@@ -978,45 +723,10 @@ body::before {
 .modal-btn {
     flex: 1;
     padding: 12px;
-    border: 2px solid var(--primary-color);
-    background: rgba(0, 212, 255, 0.1);
-    color: var(--primary-light);
-    border-radius: 0;
+    border: none;
+    border-radius: 6px;
     font-size: 14px;
     font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.cancel-btn {
-    border-color: var(--border-secondary);
-    color: var(--text-secondary);
-}
-
-.cancel-btn:hover {
-    background: rgba(0, 212, 255, 0.1);
-    border-color: var(--primary-color);
-    color: var(--primary-light);
-}
-
-.confirm-btn {
-    border-color: var(--error-color);
-    color: var(--error-color);
-}
-
-.confirm-btn:hover {
-    background: rgba(255, 68, 102, 0.2);
-    box-shadow: 0 0 15px rgba(255, 68, 102, 0.3);
-}
-
-.confirm-btn:disabled {
-    border-color: var(--border-secondary);
-    color: var(--text-dark);
-    background: rgba(0, 0, 0, 0.2);
-    cursor: not-allowed;
-}
     cursor: pointer;
     transition: all 0.3s ease;
 }

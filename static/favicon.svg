@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Raspberry body - made of circular segments -->
+  
+  <!-- Top cluster of raspberry drupelets -->
+  <circle cx="35" cy="25" r="8" fill="#E91E63"/>
+  <circle cx="50" cy="20" r="8" fill="#E91E63"/>
+  <circle cx="65" cy="25" r="8" fill="#E91E63"/>
+  
+  <!-- Upper middle cluster -->
+  <circle cx="28" cy="38" r="8" fill="#E91E63"/>
+  <circle cx="43" cy="33" r="8" fill="#E91E63"/>
+  <circle cx="57" cy="33" r="8" fill="#E91E63"/>
+  <circle cx="72" cy="38" r="8" fill="#E91E63"/>
+  
+  <!-- Middle cluster -->
+  <circle cx="35" cy="50" r="8" fill="#E91E63"/>
+  <circle cx="50" cy="48" r="9" fill="#E91E63"/>
+  <circle cx="65" cy="50" r="8" fill="#E91E63"/>
+  
+  <!-- Lower middle cluster -->
+  <circle cx="28" cy="62" r="8" fill="#E91E63"/>
+  <circle cx="43" cy="58" r="8" fill="#E91E63"/>
+  <circle cx="57" cy="58" r="8" fill="#E91E63"/>
+  <circle cx="72" cy="62" r="8" fill="#E91E63"/>
+  
+  <!-- Bottom cluster -->
+  <circle cx="35" cy="73" r="8" fill="#E91E63"/>
+  <circle cx="50" cy="78" r="8" fill="#E91E63"/>
+  <circle cx="65" cy="73" r="8" fill="#E91E63"/>
+  
+  <!-- Green leaf/stem at top -->
+  <ellipse cx="50" cy="8" rx="6" ry="4" fill="#4CAF50" transform="rotate(-30 50 8)"/>
+  <ellipse cx="50" cy="8" rx="6" ry="4" fill="#45a049" transform="rotate(30 50 8)"/>
+  <path d="M 50 8 L 50 15" stroke="#2E7D32" stroke-width="1.5" fill="none"/>
+</svg>
