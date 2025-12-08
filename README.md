@@ -1,4 +1,4 @@
-# Update : create a new theme kind of pop os feel and added a favicon
+# Update : create a new theme kind of pop os feel and added a favicon along with Network speed 
 
 Still working on getting the Pi-hole intergration. 
 
@@ -8,7 +8,7 @@ web-based dashboard for monitoring Raspberry Pi 5 system metrics in real-time. P
 
 Over the last few years, I’ve been tinkering with Raspberry Pis and using them for various purposes, and all of them are running headless. This can make it difficult to monitor them, so I decided it would be fun to create a local web page to provide a faster way to check and see what’s going on with my Pis.
 
-<img width="1445" height="1010" alt="Screenshot 2025-12-08 at 15 30 27" src="https://github.com/user-attachments/assets/a8c0ff2c-7e37-4862-aa27-d24177b5eec8" />
+<img width="1471" height="1016" alt="Screenshot 2025-12-08 at 16 24 23" src="https://github.com/user-attachments/assets/906fbb45-3bb7-439d-bb14-c084dd96408c" />
 
 <img width="1452" height="875" alt="Screenshot 2025-12-08 at 15 30 46" src="https://github.com/user-attachments/assets/de4c9690-0085-452e-adbd-75ffeff36e43" />
 
