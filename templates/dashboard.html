@@ -24,12 +24,24 @@
                 </div>
             </div>
             <div class="header-controls">
-                <button id="reboot-btn" class="control-btn reboot-btn" title="Reboot system">
-                    <span>🔄 Reboot</span>
-                </button>
-                <button id="shutdown-btn" class="control-btn shutdown-btn" title="Shutdown system">
-                    <span>🔴 Shutdown</span>
-                </button>
+                <div class="control-buttons-wrapper">
+                    <button id="reboot-btn" class="control-btn reboot-btn" title="Reboot system">
+                        <span>⟳ REBOOT</span>
+                    </button>
+                    <button id="shutdown-btn" class="control-btn shutdown-btn" title="Shutdown system">
+                        <span>⏹ SHUTDOWN</span>
+                    </button>
+                </div>
+                <div class="network-speed-box">
+                    <div class="speed-item">
+                        <label>↓ Download</label>
+                        <span id="download-speed" class="speed-value">-- Mbps</span>
+                    </div>
+                    <div class="speed-item">
+                        <label>↑ Upload</label>
+                        <span id="upload-speed" class="speed-value">-- Mbps</span>
+                    </div>
+                </div>
             </div>
             <div class="update-status">
                 <span id="last-update" class="update-time">Initializing...</span>
@@ -38,6 +50,7 @@
 
         <!-- Main Content -->
         <main class="dashboard">
+
             <!-- System Info Section -->
             <section class="card system-info-card">
                 <h2>System Information</h2>

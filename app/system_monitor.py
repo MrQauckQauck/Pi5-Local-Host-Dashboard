@@ -153,6 +153,7 @@ class SystemMonitor:
         metrics = {
             'partitions': [],
             'io_counters': None,
+            'network_io': None,
             'timestamp': datetime.now().isoformat()
         }
         
@@ -183,6 +184,18 @@ class SystemMonitor:
                 'write_bytes': io_counters.write_bytes,
                 'read_time': io_counters.read_time,
                 'write_time': io_counters.write_time,
+            }
+        except Exception:
+            pass
+        
+        # Network I/O counters
+        try:
+            net_io = psutil.net_io_counters()
+            metrics['network_io'] = {
+                'bytes_sent': net_io.bytes_sent,
+                'bytes_recv': net_io.bytes_recv,
+                'packets_sent': net_io.packets_sent,
+                'packets_recv': net_io.packets_recv,
             }
         except Exception:
             pass

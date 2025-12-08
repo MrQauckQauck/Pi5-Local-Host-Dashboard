@@ -3,6 +3,8 @@ class DashboardManager {
         this.updateInterval = 2000; // Update every 2 seconds
         this.isUpdating = false;
         this.previousData = null;
+        this.previousNetStats = null;
+        this.previousTime = Date.now();
         this.init();
     }
 
@@ -73,7 +75,10 @@ class DashboardManager {
         if (data.system_info) this.updateSystemInfo(data.system_info);
         if (data.cpu) this.updateCPUMetrics(data.cpu);
         if (data.memory) this.updateMemoryMetrics(data.memory);
-        if (data.storage) this.updateStorageMetrics(data.storage);
+        if (data.storage) {
+            this.updateStorageMetrics(data.storage);
+            this.updateNetworkSpeed(data.storage);
+        }
     }
 
     updateSystemInfo(info) {
@@ -106,6 +111,49 @@ class DashboardManager {
         if (minutes > 0) parts.push(`${minutes}m`);
         
         return parts.length > 0 ? parts.join(' ') : 'just now';
+    }
+
+    calculateNetworkSpeed(storageData) {
+        try {
+            if (!storageData || !storageData.network_io) {
+                return { download: 0, upload: 0 };
+            }
+
+            const currentTime = Date.now();
+            const timeDiff = (currentTime - this.previousTime) / 1000; // Convert to seconds
+
+            if (!this.previousNetStats) {
+                this.previousNetStats = storageData.network_io;
+                this.previousTime = currentTime;
+                return { download: 0, upload: 0 };
+            }
+
+            const prevStats = this.previousNetStats;
+            const currentStats = storageData.network_io;
+
+            // Calculate bytes per second
+            const recvDiff = currentStats.bytes_recv - prevStats.bytes_recv;
+            const sentDiff = currentStats.bytes_sent - prevStats.bytes_sent;
+
+            const downloadMbps = (recvDiff / timeDiff / 1024 / 1024) * 8; // Convert to Mbps
+            const uploadMbps = (sentDiff / timeDiff / 1024 / 1024) * 8; // Convert to Mbps
+
+            this.previousNetStats = currentStats;
+            this.previousTime = currentTime;
+
+            return {
+                download: Math.max(0, downloadMbps),
+                upload: Math.max(0, uploadMbps)
+            };
+        } catch (e) {
+            return { download: 0, upload: 0 };
+        }
+    }
+
+    updateNetworkSpeed(storageData) {
+        const speed = this.calculateNetworkSpeed(storageData);
+        document.getElementById('download-speed').textContent = speed.download.toFixed(1) + ' Mbps';
+        document.getElementById('upload-speed').textContent = speed.upload.toFixed(1) + ' Mbps';
     }
 
     celsiusToFahrenheit(celsius) {
