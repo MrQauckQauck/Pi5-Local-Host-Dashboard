@@ -1,6 +1,6 @@
-# Next Push :
+# Update : create a new theme kind of pop os feel and added a favicon
 
-Going to be adding Pi-hole integration.
+Still working on getting the Pi-hole intergration. 
 
 # Local Host Dashboard - Raspberry Pi System Monitory 
 
@@ -8,11 +8,11 @@ web-based dashboard for monitoring Raspberry Pi 5 system metrics in real-time. P
 
 Over the last few years, I’ve been tinkering with Raspberry Pis and using them for various purposes, and all of them are running headless. This can make it difficult to monitor them, so I decided it would be fun to create a local web page to provide a faster way to check and see what’s going on with my Pis.
 
-<img width="1521" height="1073" alt="Screenshot 2025-11-30 at 17 12 06" src="https://github.com/user-attachments/assets/80fe0655-7aca-47fd-bc37-8c6834f6f64f" />
+<img width="1445" height="1010" alt="Screenshot 2025-12-08 at 15 30 27" src="https://github.com/user-attachments/assets/a8c0ff2c-7e37-4862-aa27-d24177b5eec8" />
 
-<img width="1541" height="1088" alt="Screenshot 2025-11-30 at 17 47 26" src="https://github.com/user-attachments/assets/531e0056-0508-4ca1-8192-cb9b8cb79518" />
+<img width="1452" height="875" alt="Screenshot 2025-12-08 at 15 30 46" src="https://github.com/user-attachments/assets/de4c9690-0085-452e-adbd-75ffeff36e43" />
 
-<img width="1424" height="659" alt="Screenshot 2025-11-30 at 17 13 39" src="https://github.com/user-attachments/assets/13d3241b-f5ac-4656-8199-0db7cdc018e4" />
+<img width="1536" height="657" alt="Screenshot 2025-12-08 at 15 30 56" src="https://github.com/user-attachments/assets/ed53cf08-d33c-4a43-abfb-b4985ca49711" />
 
 
 # Note: 
